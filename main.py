@@ -6,7 +6,7 @@ clock = time.Clock()
 
 window = display.set_mode((700, 500))
 display.set_caption('The maze game')
-bg = transform.scale(image.load('E:\Algorithmics\PTPY1\maze game\\background.jpg'), (700, 500))
+bg = transform.scale(image.load('background.jpg'), (700, 500))
 
 VWalls = []
 HWalls = []
@@ -84,7 +84,7 @@ class Player(GameSprite):
             self.rect.y -= 5
 
     def fire(self):
-        bullet = Bullet('E:\Algorithmics\PTPY1\maze game\leaf.png', self.rect.right, self.rect.centery, 20, 15, 4)
+        bullet = Bullet('leaf.png', self.rect.right, self.rect.centery, 20, 15, 4)
         bullets.add(bullet)
 
 class Enemy(GameSprite):
@@ -97,10 +97,10 @@ class Enemy(GameSprite):
     def update(self):
         if self.rect.x <= 300:
             self.direction = "right"
-            self.image = transform.scale(image.load('E:\Algorithmics\PTPY1\maze game\\monsterR.png'), (self.width, self.height))
+            self.image = transform.scale(image.load('monsterR.png'), (self.width, self.height))
         if self.rect.x >= 680 - 100:
             self.direction = "left"
-            self.image = transform.scale(image.load('E:\Algorithmics\PTPY1\maze game\\monsterL.png'), (self.width, self.height))
+            self.image = transform.scale(image.load('monsterL.png'), (self.width, self.height))
         if self.direction == "left":
             self.rect.x -= self.speed
         else:
@@ -131,29 +131,29 @@ def createMaze():
     global walls
 
     #Create all vertical walls
-    VWall1 = GameSprite('E:\Algorithmics\PTPY1\maze game\\vwall.png', 50, 180, 220, 300)
+    VWall1 = GameSprite('vwall.png', 50, 180, 220, 300)
     walls.add(VWall1)
-    VWall2 = GameSprite('E:\Algorithmics\PTPY1\maze game\\vwall.png', 50, 180, 220, 150)
+    VWall2 = GameSprite('vwall.png', 50, 180, 220, 150)
     walls.add(VWall2)
-    VWall3 = GameSprite('E:\Algorithmics\PTPY1\maze game\\vwall.png', 50, 190, 400, 25)
+    VWall3 = GameSprite('vwall.png', 50, 190, 400, 25)
     walls.add(VWall3)
-    VWall4 = GameSprite('E:\Algorithmics\PTPY1\maze game\\vwall.png', 50, 160, 430, 320)
+    VWall4 = GameSprite('vwall.png', 50, 160, 430, 320)
     walls.add(VWall4)
-    VWall5 = GameSprite('E:\Algorithmics\PTPY1\maze game\\vwall.png', 50, 320, 630, 90)
+    VWall5 = GameSprite('vwall.png', 50, 320, 630, 90)
     walls.add(VWall5)
-    VWall6 = GameSprite('E:\Algorithmics\PTPY1\maze game\\vwall.png', 50, 180, 20, 8)
+    VWall6 = GameSprite('vwall.png', 50, 180, 20, 8)
     walls.add(VWall6)
 
     #Create all horizontal walls
-    HWall1 = GameSprite('E:\Algorithmics\PTPY1\maze game\\hwall.png', 180, 50, 90, 280)
+    HWall1 = GameSprite('hwall.png', 180, 50, 90, 280)
     walls.add(HWall1)
-    HWall2 = GameSprite('E:\Algorithmics\PTPY1\maze game\\hwall.png', 320, 50, 280, 10)
+    HWall2 = GameSprite('hwall.png', 320, 50, 280, 10)
     walls.add(HWall2)
-    HWall3 = GameSprite('E:\Algorithmics\PTPY1\maze game\\hwall.png', 200, 50, 360, 300)
+    HWall3 = GameSprite('hwall.png', 200, 50, 360, 300)
     walls.add(HWall3)
-    HWall4 = GameSprite('E:\Algorithmics\PTPY1\maze game\\hwall.png', 120, 50, 550, 150)
+    HWall4 = GameSprite('hwall.png', 120, 50, 550, 150)
     walls.add(HWall4)
-    HWall5 = GameSprite('E:\Algorithmics\PTPY1\maze game\\hwall.png', 180, 50, 20, 10)
+    HWall5 = GameSprite('hwall.png', 180, 50, 20, 10)
     walls.add(HWall5)
 
 def finalResult(win):
@@ -168,14 +168,14 @@ def finalResult(win):
         text = tfont.render('YOU LOSE!', True, (255, 193, 7))
         window.blit(text, (160, 200))
 
-character = Player('E:\Algorithmics\PTPY1\maze game\\avatar.png', 50, 50, 30, 430, 0, 0)
+character = Player('avatar.png', 50, 50, 30, 430, 0, 0)
 walls = sprite.Group()
 bullets = sprite.Group()
 createMaze()
-monster = Enemy('E:\Algorithmics\PTPY1\maze game\\monsterR.png', 50, 50, 270, 250, 4)
+monster = Enemy('monsterR.png', 50, 50, 270, 250, 4)
 monsters = sprite.Group()
 monsters.add(monster)
-goal = GameSprite('E:\Algorithmics\PTPY1\maze game\\star.png', 50, 50, 500, 400)
+goal = GameSprite('star.png', 50, 50, 500, 400)
 
 run = True
 win = False
